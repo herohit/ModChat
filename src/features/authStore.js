@@ -1,6 +1,6 @@
-import create from "zustand";
+import {create} from "zustand";
 
-const useAuthStore = create((set) => ({
+export const useAuthStore = create((set) => ({
   token: localStorage.getItem("token") || null,
   user: null,
   login: (token, user) => {
@@ -12,4 +12,3 @@ const useAuthStore = create((set) => ({
     set({ token: null, user: null });
   },
 }));
-export default useAuthStore;

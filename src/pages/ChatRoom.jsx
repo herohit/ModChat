@@ -2,7 +2,9 @@ import React from 'react';
 
 
 const ChatRoom = () => {
-  return <div>ChatRoom</div>;
+  return <div>
+    <h1>Welcome to ModChat</h1>
+  </div>;
 };
 
 export default ChatRoom;
