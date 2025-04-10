@@ -10,6 +10,7 @@ import Register from "@/pages/Register";
 import Explore from "./pages/Explore";
 import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
+import AddRoom from "./pages/AddRoom";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route path="/explore" element={<Explore/>} />
             <Route path="/profile" element={<Profile/>} />
             <Route path="/settings" element={<Settings/>} />
+            <Route path="/add-room" element={<AddRoom/>} />
           </Routes>
         </BrowserRouter>
       </div>

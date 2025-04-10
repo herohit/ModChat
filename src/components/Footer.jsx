@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Home, Compass, User, Settings } from "lucide-react";
+import { Home, Compass, User, Settings ,SquarePlus} from "lucide-react";
 import React from "react";
 import { NavLink } from "react-router-dom";
 
@@ -25,6 +25,7 @@ const Footer = () => {
       <div className="flex justify-between px-6 py-2">
         <FooterItem icon={<Home className="w-5 h-5" strokeWidth={3} />} label="Home" to ={'/'} />
         <FooterItem icon={<Compass className="w-5 h-5" strokeWidth={3} />} label="Explore" to={'/explore'}/>
+        <FooterItem icon={<SquarePlus className="w-5 h-5" strokeWidth={3} />} label="Add Room" to={'/add-room'}/>
         <FooterItem icon={<User className="w-5 h-5" strokeWidth={3} />} label="Profile" to={'/profile'}/>
         <FooterItem icon={<Settings className="w-5 h-5" strokeWidth={3} />} label="Settings" to={'/settings'}/>
       </div>
