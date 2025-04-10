@@ -33,6 +33,9 @@ const AddRoom = () => {
   const [inputValue, setInputValue] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [filteredCategories, setFilteredCategories] = useState(categories);
+
+  const navigate = useNavigate();
+
   const form = useForm({
     resolver: zodResolver(formShema),
     defaultValues: {
