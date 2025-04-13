@@ -25,7 +25,7 @@ const ThemeToggle = () => {
       <Switch
         checked={theme === "dark"}
         onCheckedChange={toggleTheme}
-        className="data-[state=checked]:bg-gray-800"
+        className="data-[state=checked]:bg-slate-400"
       />
       <Moon size={18} className={theme === "dark" ? "text-blue-300" : "text-muted"} />
     </div>
