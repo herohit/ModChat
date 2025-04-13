@@ -30,7 +30,7 @@ const Settings = () => {
   };
 
   return (
-    <div className="min-h-full">
+    <div className="min-h-screen dark:bg-[#0F1923]">
       <Header />
       {/* back icon */}
       <div className="p-3 pt-3.5 flex gap-3 items-center fixed top-0 w-full dark:bg-[#0F1923] z-50">

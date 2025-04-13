@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 const Profile = () => {
   const navigate = useNavigate();
   return (
-    <div className="min-h-full">
+    <div className="min-h-full dark:bg-[#0F1923]">
       <Header />
       <div className="p-3 pt-4 flex gap-3 items-center fixed top-0 w-full dark:bg-[#0F1923] z-50">
         <button onClick={() => navigate(-1)}>
