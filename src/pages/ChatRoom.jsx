@@ -1,8 +1,9 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { AnimatePresence, motion } from "framer-motion";
-import { MessageCircle } from "lucide-react";
+import { Bell, MessageCircle } from "lucide-react";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const ChatRoom = () => {
   const user = [
@@ -45,10 +46,20 @@ const ChatRoom = () => {
     <div className="min-h-full">
       <Header />
       {/* header for mobile */}
-      <header className="flex justify-between items-center px-2 py-4 lg:h-16 h-12 bg-white dark:bg-[#0F1923] shadow-md dark:shadow-none md:hidden">
-        <div className="flex items-center space-x-2">
-          <h2 className=" text-sm font-semibold tracking-tight">ModChat</h2>
-          <MessageCircle size={15} />
+      <header className="flex justify-between items-center px-2 py-6 mb-2 h-10 bg-white dark:bg-[#0e141b]  dark:shadow-none md:hidden">
+        <div className="flex items-center justify-between  w-full">
+          <div className="flex items-center space-x-2">
+            <h2 className=" text-sm font-semibold tracking-tight">ModChat</h2>
+            <MessageCircle size={15} />
+          </div>
+          <Link to={'/notification'} className="rounded-full mr-3">
+            <button class="relative  duration-300 p-1 text-blue-100 rounded-full mt-2">
+              <Bell size={25} />
+              <span class="absolute bg-pink-500 text-blue-100 px-1 py-1 text-xs font-bold rounded-full -top-1 -right-2">
+                9+
+              </span>
+            </button>
+          </Link>
         </div>
       </header>
 
@@ -58,9 +69,9 @@ const ChatRoom = () => {
           <AnimatePresence mode="wait">
             <motion.h5
               key={showFirst ? "welcome" : "chatting"}
-              initial={{ y: showFirst ? 5 : -5, opacity: 0}}
+              initial={{ y: showFirst ? 5 : -5, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              exit={{ y: showFirst ? 5: -5, opacity: 0 }}
+              exit={{ y: showFirst ? 5 : -5, opacity: 0 }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
               className="absolute text-center text-slate-300 text-base"
             >

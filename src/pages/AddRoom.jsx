@@ -14,7 +14,7 @@ import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown,CircleFadingPlus } from "lucide-react";
 import { ArrowLeft } from "lucide-react";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -54,13 +54,15 @@ const AddRoom = () => {
   return (
     <div className="min-h-full">
       <Header />
-      <div className="p-3 flex gap-3 items-center mt-1.5">
+      <div className="p-3 pt-4 flex gap-3 items-center fixed top-0 w-full dark:bg-[#0F1923] z-50">
         <button onClick={() => navigate(-1)}>
           <ArrowLeft />
         </button>
+        <h1 className="text-xl font-bold flex gap-2 items-center">
+          < CircleFadingPlus /> Add Room
+        </h1>
       </div>
-      <main className="p-2 px-4 space-y-6">
-        <h1 className="text-2xl font-bold">Add Room</h1>
+      <main className="px-4 py-16 mt-3 space-y-6">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
             {/* Room Name */}

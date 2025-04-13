@@ -1,5 +1,6 @@
 import React,{ useState,useEffect } from "react";
 import {  Moon, Sun } from "lucide-react";
+import { Switch } from "@/components/ui/switch";
 
 const ThemeToggle = () => {
   const [theme, setTheme] = useState("light");
@@ -19,18 +20,14 @@ const ThemeToggle = () => {
     localStorage.setItem("theme", newTheme);
   };
   return (
-    <div className="lg:flex items-center space-x-2">
-      <button
-        onClick={toggleTheme}
-        className="p-1.5 cursor-pointer rounded-full  bg-gray-500"
-        aria-label="Toggle Dark Mode"
-      >
-        {theme === "dark" ? (
-          <Moon size={20} />
-        ) : (
-          <Sun size={20} color="orange" />
-        )}
-      </button>
+    <div className="items-center space-x-2 flex">
+      <Sun size={18} className={theme === "light" ? "text-yellow-400" : "text-muted"} />
+      <Switch
+        checked={theme === "dark"}
+        onCheckedChange={toggleTheme}
+        className="data-[state=checked]:bg-gray-800"
+      />
+      <Moon size={18} className={theme === "dark" ? "text-blue-300" : "text-muted"} />
     </div>
   );
 };

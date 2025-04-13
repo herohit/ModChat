@@ -84,7 +84,7 @@ const Explore = () => {
     <div className="min-h-full">
       <Header />
       {/* back icon */}
-      <div className="p-3 flex gap-3 items-center">
+      <div className="p-3 flex gap-3 items-center fixed top-0 w-full dark:bg-[#0F1923] z-50">
         <button onClick={() => navigate(-1)}>
           <ArrowLeft />
         </button>
@@ -93,7 +93,7 @@ const Explore = () => {
           onChange={(e) => handleSearch(e.target.value.toLocaleLowerCase())}
         />
       </div>
-      <main className="p-2 overflow-y-scroll h-[80vh]">
+      <main className="p-2 py-16">
         {/* filter buttons */}
         <div className="mb-4 w-full overflow-x-scroll no-scrollbar">
           <RoomFilters />

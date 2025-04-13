@@ -11,13 +11,14 @@ import Explore from "./pages/Explore";
 import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
 import AddRoom from "./pages/AddRoom";
+import Notifications from "./pages/Notifications";
 
 function App() {
   return (
     <>
       <Toaster position="top-right" closeButton />
 
-      <div className="h-[90vh] lg:min-h-screen dark:bg-[#0F1923] bg-gray-100 overflow-hidden">
+      <div className="h-[90vh] lg:min-h-screen dark:bg-[#0F1923] bg-gray-100 ">
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<ChatRoom />} />
@@ -30,6 +31,7 @@ function App() {
             <Route path="/profile" element={<Profile/>} />
             <Route path="/settings" element={<Settings/>} />
             <Route path="/add-room" element={<AddRoom/>} />
+            <Route path="/notification" element={<Notifications/>} />
           </Routes>
         </BrowserRouter>
       </div>
