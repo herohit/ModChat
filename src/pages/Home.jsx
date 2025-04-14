@@ -5,7 +5,7 @@ import { Bell, MessageCircle } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const ChatRoom = () => {
+const Home = () => {
   const user = [
     {
       avatar:
@@ -93,4 +93,4 @@ const ChatRoom = () => {
   );
 };
 
-export default ChatRoom;
+export default Home;

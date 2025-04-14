@@ -13,7 +13,7 @@ import { useSearchParams } from "react-router-dom";
 const Explore = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const filter = searchParams.get("filter") || "All";
+  const filter = searchParams.get("filter") || "all";
   const [filteredRooms, setFilteredRooms] = useState([]);
   const [searchRooms, setSearchRooms] = useState("");
 
@@ -24,7 +24,8 @@ const Explore = () => {
       popularity: 120,
       isJoined: true,
       createdRecently: true,
-      members:[123,123,122,333]
+      members:[123,123,122,333],
+      created_by:'jbj'
     },
     {
       id: 2,
@@ -32,6 +33,7 @@ const Explore = () => {
       popularity: 80,
       isJoined: false,
       createdRecently: false,
+      created_by:'e'
     },
     {
       id: 3,
@@ -39,6 +41,7 @@ const Explore = () => {
       popularity: 300,
       isJoined: true,
       createdRecently: false,
+      created_by:'me'
     },
     {
       id: 4,
@@ -46,6 +49,7 @@ const Explore = () => {
       popularity: 45,
       isJoined: false,
       createdRecently: true,
+      created_by:'me'
     },
   ];
 
@@ -61,6 +65,9 @@ const Explore = () => {
         break;
       case "new":
         filteredRooms = filteredRooms.filter((r) => r.createdRecently);
+        break;
+      case "my rooms":
+        filteredRooms = filteredRooms.filter((r) => r.created_by == "me");
         break;
       default:
         break;

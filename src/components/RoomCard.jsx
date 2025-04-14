@@ -1,3 +1,14 @@
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -7,9 +18,17 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Trash2 } from "lucide-react";
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
-const RoomCard = ({room}) => {
+const handleDelete = (room_id) => {
+  toast.success("Room deleted successfully");
+};
+
+const RoomCard = ({ room }) => {
+  const navigate = useNavigate();
   return (
     <Card className="mb-4 md:w-[24vw]">
       <CardHeader>
@@ -22,7 +41,8 @@ const RoomCard = ({room}) => {
       <CardContent className="space-y-3">
         <div className="flex justify-between">
           <p className="text-sm text-gray-400">
-            <span className="font-medium text-gray-300 ">Members:</span> {room.members?.length || 0}
+            <span className="font-medium text-gray-300 ">Members:</span>{" "}
+            {room.members?.length || 0}
           </p>
           <p className="text-sm text-gray-400">
             <span className="font-medium text-gray-300">Created by:</span> John
@@ -47,7 +67,37 @@ const RoomCard = ({room}) => {
         </div>
       </CardContent>
       <CardFooter className="border-t border-gray-700 pt-4">
-        <Button className="w-full cursor-pointer">Join Room</Button>
+        {room.created_by === "me" ? (
+          <div className="flex gap-2">
+            <Button className="cursor-pointer">Start Chatting</Button>
+            {/* delete button  and dialog*/}
+            <AlertDialog>
+              <AlertDialogTrigger asChild>
+                <Button className="cursor-pointer" variant="destructive">
+                  <Trash2 className="w-4 h-4" />
+                  Delete Room
+                </Button>
+              </AlertDialogTrigger>
+              <AlertDialogContent>
+                <AlertDialogHeader>
+                  <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                  <AlertDialogDescription>
+                    This action cannot be undone. This will permanently delete
+                    your room and remove data from our servers.
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                  <AlertDialogCancel>Cancel</AlertDialogCancel>
+                  <AlertDialogAction onClick={handleDelete}>
+                    Continue
+                  </AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
+          </div>
+        ) : (
+          <Button className="w-full cursor-pointer"  onClick={() => navigate("/room/:room_id")}>Join Room</Button>
+        )}
       </CardFooter>
     </Card>
   );

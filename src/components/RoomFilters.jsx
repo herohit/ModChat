@@ -12,7 +12,7 @@ const filters = [
 
 export function RoomFilters() {
   const [searchParams, setSearchParams] = useSearchParams()
-  const activeFilter = searchParams.get("filter") || "All"
+  const activeFilter = searchParams.get("filter") || "all"
 
   const handleChange = (val) => {
     if (val) {
@@ -31,7 +31,7 @@ export function RoomFilters() {
       {filters.map((filter) => (
         <ToggleGroupItem
           key={filter}
-          value={filter}
+          value={filter.toLowerCase()}
           className="capitalize px-5 data-[state=on]:bg-slate-500 data-[state=on]:text-white transition-all"
         >
           {filter}

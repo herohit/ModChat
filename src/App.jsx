@@ -4,7 +4,6 @@ import "./App.css";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
 import Header from "@/components/Header";
-import ChatRoom from "@/pages/ChatRoom";
 import Login from "@/pages/Login";
 import Register from "@/pages/Register";
 import Explore from "./pages/Explore";
@@ -12,6 +11,7 @@ import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
 import AddRoom from "./pages/AddRoom";
 import Notifications from "./pages/Notifications";
+import Home from '@/pages/Home'
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
       <div className="h-[90vh] lg:min-h-screen dark:bg-[#0F1923] bg-gray-100 ">
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<ChatRoom />} />
+            <Route path="/" element={<Home />} />
 
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
